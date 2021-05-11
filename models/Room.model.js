@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const roomSchema = new Schema({
+const RoomSchema = new mongoose.Schema({
   name: { type: String },
   description: { type: String },
   imageUrl: { type: String },
-  reviews: [], // we will update this field a bit later when we create review model
+  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
 });
 
-module.exports = mongoose.model("Room", UserSchema);
+module.exports = mongoose.model("Room", RoomSchema);

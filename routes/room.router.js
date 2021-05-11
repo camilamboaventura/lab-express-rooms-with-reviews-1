@@ -62,6 +62,19 @@ router.get("/room", async (req, res) => {
   }
 });
 
+router.get("/room/:id", async (req, res) => {
+  try {
+    const room = await RoomModel.findOne({ _id: req.params.id }).populate(
+      "reviews"
+    );
+    console.log(room);
+
+    return res.status(200).json(room);
+  } catch (err) {
+    return res.status(500).json({ msg: JSON.stringify(err) });
+  }
+});
+
 //delete the rooms
 router.delete("/room/:id", async (req, res) => {
   try {

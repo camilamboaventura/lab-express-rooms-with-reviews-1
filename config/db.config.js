@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DB_NAME = "rooms-rate";
+const DB_NAME = "booking";
 
 async function db() {
   try {
