@@ -10,15 +10,6 @@ const UserSchema = new mongoose.Schema({
     lowercase: true,
   },
   passwordHash: { type: String, required: true },
-  phoneNumber: { type: String, required: true, trim: true },
-  address: {
-    street: { type: String, required: true, trim: true },
-    neighbourhood: { type: String, required: true, trim: true },
-    city: { type: String, required: true, trim: true },
-    postCode: { type: String, required: true, trim: true },
-    stateOrProvince: { type: String, required: true, trim: true },
-    country: { type: String, required: true, trim: true },
-  },
 });
 
 module.exports = mongoose.model("User", UserSchema);

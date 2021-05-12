@@ -7,7 +7,12 @@ const RoomModel = require("../models/Room.model");
 //create new rooms
 router.post("/room", async (req, res) => {
   console.log(req.body);
+
   try {
+    if (!req.body.image_url) {
+      delete req.body.image_url;
+    }
+
     const result = await RoomModel.create(req.body);
 
     return res.status(201).json(result);
